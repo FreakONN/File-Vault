@@ -1,10 +1,7 @@
 <?php
 namespace Framework;
 
-class FrameworkException
+class FrameworkException extends Exception
 {
-    public function __construct()
-    {
-        echo __METHOD__;
-    }
+
 }

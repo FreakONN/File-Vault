@@ -1,7 +1,7 @@
 <?php
 namespace Framework;
 
-class Request
+class ModelResourceAbstract
 {
     public function getParams()
     {
