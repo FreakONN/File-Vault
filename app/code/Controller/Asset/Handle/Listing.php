@@ -1,11 +1,12 @@
 <?php
-namespace Controller\Handle\Action;
+namespace Controller\Asset\Handle;
 use Framework;
 
 class Listing extends Framework\ControllerAbstract
 {
     public function execute()
     {
-        echo __METHOD__;
+        $this->loadLayout("\\View\\Asset\\Listing", array($this->_config))->output();
     }
+
 }

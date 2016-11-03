@@ -1,4 +1,5 @@
 <?php
+
 spl_autoload_register(function ($className) {
 
     $classPathArray = explode("\\", $className);
@@ -11,8 +12,6 @@ spl_autoload_register(function ($className) {
         $classPath = implode("/", $classPathArray);
         include "app/code/". $classPath . ".php";
     }
-
-
 
 });
 
