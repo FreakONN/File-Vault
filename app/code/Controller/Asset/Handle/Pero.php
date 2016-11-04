@@ -2,7 +2,7 @@
 namespace Controller\Asset\Handle;
 use Framework;
 
-class Listing extends Framework\ControllerAbstract
+class Pero extends Framework\ControllerAbstract
 {
     public function execute()
     {

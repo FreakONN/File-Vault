@@ -9,7 +9,9 @@ class Listing extends Framework\ViewAbstract
     protected $_lastname;
 
     public function output() {
-        $this->_name = "Pero";
+        $session = $this->_dependencies["session"];
+        $name = $session->get("name");
+        $this->_name = $name;
         $this->_lastname = "Perić";
 
         $this->setTemplate("asset/listing.phtml")->render();
