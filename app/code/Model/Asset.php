@@ -25,6 +25,7 @@ class Asset extends Framework\ModelAbstract
         return $stmt->FETCH(PDO::FETCH_ASSOC);
 
     }
-//"SELECT FROM dasdas W"."$dadsa". jsdas <---ne to
 
+
+//"SELECT FROM dasdas W"."$dadsa". jsdas <---ne to
 }

@@ -6,6 +6,7 @@ class Register extends Framework\ControllerAbstract
 {
     public function execute()
     {
-        echo __METHOD__;
+        $userModel = new User();
+        $this->userModel = $userModel->save();
     }
 }

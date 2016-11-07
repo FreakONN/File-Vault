@@ -6,6 +6,6 @@ class Register extends Framework\ControllerAbstract
 {
     public function execute()
     {
-        echo __METHOD__;
+        $this->loadLayout("\\View\\User\\Register", [])->output();
     }
 }

@@ -17,11 +17,12 @@ class Database
     public function getConnection() {
         try
         {
-            $DB_host = '';
-            $DB_user = '';
+            $DB_host = 'localhost';
+            $DB_user = 'root';
             $DB_pass = '';
-            $DB_name = '';
+            $DB_name = 'file_vault_db';
 
+           // $hash_password= hash('sha256', $password); //Password encryption
             $conn = new PDO("mysql:host={$DB_host};dbname={$DB_name}",$DB_user,$DB_pass);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
