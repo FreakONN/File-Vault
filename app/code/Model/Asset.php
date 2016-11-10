@@ -22,6 +22,7 @@ class Asset extends Framework\ModelAbstract
         return $stmt->FETCH(PDO::FETCH_ASSOC);
     }*/
 
+
     public function getList($userId)
     {
         $stmt = $this->_db->prepare("SELECT * FROM assets WHERE UserId = :userid");
@@ -30,14 +31,16 @@ class Asset extends Framework\ModelAbstract
         return $stmt->FETCH(\PDO::FETCH_ASSOC);
     }
 
-    /*public function getAssetList($userId, $query, $rows)
+
+    /*
+    public function getAssetList($userId, $query, $rows)
     {
-        $query = $this->getDatabase()->prepare("SELECT * FROM list WHERE id = :userid LIMIT $this->_session);
+        $query = $this->getDatabase()->prepare("SELECT * FROM list WHERE id = :userid LIMIT $this->_session");
         $query->bindParam(':userid', $userId);
         $query->execute();
         $rows = $query->fetch();
         return $rows['meta_type'];
-    }*/
+    }
 /*
     public function getSize()
     {
@@ -47,18 +50,5 @@ class Asset extends Framework\ModelAbstract
         $editRow=$stmt->FETCH(PDO::FETCH_ASSOC);
     }
 */
-    public function getFileType()
-    {
 
-    }
-
-    public function getFileName()
-    {
-
-    }
-
-    public function createDir()
-    {
-
-    }
 }

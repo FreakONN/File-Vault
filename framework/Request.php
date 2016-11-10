@@ -19,6 +19,38 @@ class Request
 
     public function setParams($params)
     {
+        if(!empty($params))
+        {
+            $counter = 0;
+            foreach ($params as $key)
+            {
+                $counter++;
+                if($counter % 2 == 0)
+                {
+                    $arrayKeys[$params[$counter - 2]] = $key;
+                }
+                else
+                {
+                    $arrayKeys[$key] = null;
+                }
+            }
+        }
+        else
+        {
+            $arrayKeys = null;
+        }
+        $this->params = $arrayKeys;
+    }
+
+    public function getParams()
+    {
+            return $this->params;
+    }
+
+
+    /*
+    public function setParams($params)
+    {
         //var_dump('params'); -- string(6) "params" string(6) "params"
         if (!empty($params))
         {
@@ -38,15 +70,5 @@ class Request
     {
         return $this->params;
     }
+    */
 }
-/*
- * za dohvaćanje parametara u tablici login register
-    public function getParam($name)
-    {
-        if(isset($this->params[$name]))
-        {
-            return $this->params[$name];
-        }
-        return null;
-    }
-*/
