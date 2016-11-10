@@ -21,17 +21,19 @@ class Listing extends Framework\ViewAbstract
         $this->_name = $name;
         $this->_lastname = "Perić";
 
-        //odkomentirati kada se sredi baza
-       // $assetModel = new Asset();
-       // $this->_assetList = $assetModel->getList();
+        var_dump($name);
+        //(od)komentirati kada se sredi baza
+       //$assetModel = new Asset();
+       //$this->_assetList = $assetModel->getList();
 
         $params = $this->_dependencies["request"]->getParams();
-        $userId = $params["userid"];
+        $userId = $params["UserId"];
        // var_dump($test);exit;
 
         $assetModel = new Asset();
         $this->_assetList = $assetModel->getList($userId);
- Framework\Debug::dump($this->_assetList);
+
+        Framework\Debug::dump($this->_assetList);
         $this->setTemplate("asset/listing.phtml")->render();
     }
 }
