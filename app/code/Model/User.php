@@ -56,12 +56,6 @@ class User extends Framework\ModelAbstract
 
     public function login($username, $password, $salt = "inchoo")
     {
-
-        /*
-        $query = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username");
-        $query->bindParam(':username', $username);
-        $query->execute();
-        */
         $password = $password . $salt;
         $password = sha1($password);
 
@@ -70,7 +64,6 @@ class User extends Framework\ModelAbstract
         $query->bindParam(':password', $password);
         $query->execute();
         $rows = $query->fetch();
-        //error_array
         $error_array = null;
 /*
         if (empty($username) || empty($password)) {

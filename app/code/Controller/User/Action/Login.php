@@ -9,6 +9,7 @@ class Login extends Framework\ControllerAbstract
     {
         $userModel = new User();
 
+        //korisnik logiran?
         //napraviti metodu u loginu userModel
         $login = $userModel->login(); // trebala bi vratiti true ili false
 

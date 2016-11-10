@@ -22,7 +22,7 @@ class ViewAbstract
 
     public function getMessages($message)
     {
-        //return 
+       return $this->_message;
     }
 
     public function render()

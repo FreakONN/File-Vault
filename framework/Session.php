@@ -39,7 +39,8 @@ class Session
 
     public function isUserLoggedIn ()
     {
-        if(isset($_SESSION['username']))
+        //if(isset($_SESSION['username']))
+        if($this->get());
         {
             $this->loggedIn = true;
         }
@@ -47,9 +48,9 @@ class Session
         //return true;
     }
 
-    public function  addMessage()
+    public function addMessage()
     {
-
+        return $this->addMessage();
     }
 
 

@@ -35,14 +35,16 @@ class Request
         $this->params = $arrayKeys;
     }
 
-    public function getParams($name)
-    {
-        if (isset($this->params[$name]))
-        {
-            return $this->params[$name];
-            //return $this->params;
-        }
+    //public function getParams($name)
+    public function getParams()
+
+            {
+      //  if (isset($this->params[$name]))
+      //  {
+            //return $this->params[$name];
+            return $this->params;
+      //  }
         //return $this->params;
-        return null;
+       // return null;
     }
 }
