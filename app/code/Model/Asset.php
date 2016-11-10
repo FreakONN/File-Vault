@@ -24,7 +24,7 @@ class Asset extends Framework\ModelAbstract
 
     public function getList()
     {
-        $stmt = $this->_db->prepare("SELECT * FROM list WHERE id=:AssetId");
+        $stmt = $this->_db->prepare("SELECT * FROM assets WHERE id=:AssetId");
         $stmt->execute(array(':id' => $_GET['edit_id'])); //edit_id
         return $stmt->FETCH(PDO::FETCH_ASSOC);
     }

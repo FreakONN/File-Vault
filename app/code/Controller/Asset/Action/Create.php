@@ -7,7 +7,7 @@ class Create extends Framework\ControllerAbstract
     public function execute()
     {
         var_dump($this->_request->getParams());
-        //$assetModel = new Asset();
-        //$assetModel->create();
+        $assetModel = new Asset();
+        $assetModel->create();
     }
 }

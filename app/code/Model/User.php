@@ -18,11 +18,11 @@ class User extends Framework\ModelAbstract
 
     public function save(){
         $uname = $_POST['username'];
-        //$umail = $_POST['email'];
-        $umail = $_POST['password'];
+        //#upass = $_POST['password'];
+        $umail = $_POST['email'];
 
         //$stmt = $this->_db->prepare("INSERT INTO users(username,email) VALUES(:uname, :umail)");
-        $stmt = $this->_db->prepare("INSERT INTO users(username,email) VALUES(:uname, :umail)");
+        $stmt = $this->_db->prepare("INSERT INTO user(username,email) VALUES(:uname, :umail)");
 
         $stmt->bindparam(':uname', $uname);
         $stmt->bindparam(':umail', $umail);
@@ -34,7 +34,7 @@ class User extends Framework\ModelAbstract
         $umail = $_POST['umail'];
         $id = $_GET['edit_id'];
 
-        $stmt = $this->_db->prepare("UPDATE users SET username=:uname, email=:uemail WHERE id=:id");
+        $stmt = $this->_db->prepare("UPDATE user SET username=:uname, email=:uemail WHERE id=:id");
         $stmt->bindparam(':uname', $uname);
         $stmt->bindparam(':uemail', $umail);
         $stmt->bindparam(':id', $id);
@@ -42,14 +42,14 @@ class User extends Framework\ModelAbstract
     }
 
     public function edit(){
-        $stmt = $this->_db->prepare("SELECT * FROM users WHERE id=:id");
+        $stmt = $this->_db->prepare("SELECT * FROM user WHERE id=:id");
         $stmt->execute(array(':id' => $_GET['edit_id']));
         $editRow=$stmt->FETCH(PDO::FETCH_ASSOC);
     }
 
     public function delete(){
         $id = $_GET['delete_id'];
-        $stmt = $this->_db->prepare("DELETE FROM users WHERE id=:id");
+        $stmt = $this->_db->prepare("DELETE FROM user WHERE id=:id");
         $stmt->execute(array(':id' => $id));
         header("Location: index.php");
     }
