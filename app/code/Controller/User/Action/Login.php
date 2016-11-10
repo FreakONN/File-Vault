@@ -9,6 +9,6 @@ class Login extends Framework\ControllerAbstract
     {
         $userModel = new User();
         $this->userModel = $userModel->login();
-
     }
 }
+

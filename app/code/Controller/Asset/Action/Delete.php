@@ -7,7 +7,11 @@ class Delete extends Framework\ControllerAbstract
 {
     public function execute()
     {
-        $assetModel = new Asset();
-        $assetModel->delete();
+        if($this->_session->isUserLogedIn()) {
+            $assetModel = new Asset();
+            $assetModel->delete();
+        } else {
+            $this->_response->redirect("user/login");
+        }
     }
 }
