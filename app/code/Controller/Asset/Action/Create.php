@@ -9,5 +9,7 @@ class Create extends Framework\ControllerAbstract
         var_dump($this->_request->getParams());
         $assetModel = new Asset();
         $assetModel->create();
+        //redirect na neku drugu adresu
+        $this->_response->redirect("/");
     }
 }

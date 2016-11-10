@@ -37,7 +37,7 @@ class Session
         return null;
     }
 
-    public function isUserLogedIn ()
+    public function isUserLoggedIn ()
     {
         return true;
     }

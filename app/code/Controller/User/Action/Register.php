@@ -8,5 +8,6 @@ class Register extends Framework\ControllerAbstract
     {
         $userModel = new User();
         $this->userModel = $userModel->save();
+
     }
 }

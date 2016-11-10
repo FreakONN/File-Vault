@@ -25,9 +25,13 @@ class Listing extends Framework\ViewAbstract
        // $assetModel = new Asset();
        // $this->_assetList = $assetModel->getList();
 
-        $assetModel = new Asset();
-        $this->_assetList = $assetModel->getList();
+        $params = $this->_dependencies["request"]->getParams();
+        $userId = $params["userid"];
+       // var_dump($test);exit;
 
+        $assetModel = new Asset();
+        $this->_assetList = $assetModel->getList($userId);
+ Framework\Debug::dump($this->_assetList);
         $this->setTemplate("asset/listing.phtml")->render();
     }
 }

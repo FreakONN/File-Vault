@@ -24,7 +24,6 @@ class ControllerAbstract
 
     protected function loadLayout($view, array $dependencies)
     {
-        //novi array objekt
         return new $view($dependencies);
     }
 }

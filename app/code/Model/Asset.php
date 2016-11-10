@@ -22,11 +22,12 @@ class Asset extends Framework\ModelAbstract
         return $stmt->FETCH(PDO::FETCH_ASSOC);
     }*/
 
-    public function getList()
+    public function getList($userId)
     {
-        $stmt = $this->_db->prepare("SELECT * FROM assets WHERE id=:AssetId");
-        $stmt->execute(array(':id' => $_GET['edit_id'])); //edit_id
-        return $stmt->FETCH(PDO::FETCH_ASSOC);
+        $stmt = $this->_db->prepare("SELECT * FROM assets WHERE UserId = :userid");
+        $stmt->bindParam(':userid', $userId);
+        $stmt->execute();
+        return $stmt->FETCH(\PDO::FETCH_ASSOC);
     }
 
     /*public function getAssetList($userId, $query, $rows)
