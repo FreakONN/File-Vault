@@ -21,28 +21,10 @@ class ControllerAbstract
         $this->_session = $session;
     }
 
-    //objasniti
+
     protected function loadLayout($view, array $dependencies)
     {
         //novi array objekt
         return new $view($dependencies);
     }
-
-    /*
-        <?php
-            $a = array('one', 'two', 'three');
-            $ao = new ArrayObject($a);
-
-            foreach ($ao as $element) {
-                echo $element . ' '; // one two three
-            }
-
-            $b = array('four', 'five', 'six');
-            $ao->exchangeArray($b); // returns null
-
-            foreach ($ao as $element) {
-                echo $element . ' '; // four five six
-            }
-        ?>
-     */
 }

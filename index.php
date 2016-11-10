@@ -8,7 +8,8 @@ spl_autoload_register(function ($className) {
 
         include "framework/". $classPathArray[1] . ".php";
 
-    } else {
+    } else
+    {
         $classPath = implode("/", $classPathArray);
         include "app/code/". $classPath . ".php";
     }

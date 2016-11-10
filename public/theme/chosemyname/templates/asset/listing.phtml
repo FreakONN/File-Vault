@@ -1,1 +1,20 @@
-Hello <?php echo $this->_name;?> <?php echo $this->_lastname;?>
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title><?php echo $this->title; ?></title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+</head>
+<div>
+    <body>
+    <form action="<?php echo $this->baseUrl;?>/asset/action/create" method="post" enctype="multipart/form-data" >
+        <fieldset>
+            Select image to upload:
+            <input type="file" name="Upload" id="fileToUpload" />
+            <input type="submit" value="Upload File" name="submit" />
+        <fieldset>
+    </form>
+</div>

@@ -3,11 +3,8 @@ namespace Framework;
 
 class ModelAbstract
 {
-    public function get()
+    public function getDatabase()
     {
-        $stmt = $this->_db->prepare("SELECT * FROM tbl_test WHERE id=:id");
-        $stmt->execute(array(':id' => $_GET['edit_id']));
-        return $stmt->FETCH(PDO::FETCH_ASSOC);
-
+        return Database::getInstance();
     }
 }

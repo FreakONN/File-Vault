@@ -8,8 +8,7 @@ class Listing extends Framework\ControllerAbstract
     {
         $this->_session->set("name", "Pero");
         $dependencies = array("config"=>$this->_config, "session" => $this->_session);
-        $this->loadLayout("\\View\\Asset\\Listing", $dependencies)->output();
-        //$this->loadLayout("pozivanje Listinga u View-u kao parametar za ispis", asocijativni array key=>value -- "ControllerAbstract"=> )->output();
-    }
 
+        $this->loadLayout("\\View\\Asset\\Listing", $dependencies)->output();
+    }
 }

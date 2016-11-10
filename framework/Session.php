@@ -28,9 +28,18 @@ class Session
     //echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
 
     //Listing.php -- $name = $session->get("name");
-    public function get($key)
+    public function get($name)
     {
-        return $_SESSION[$key];
+        if(isset($_SESSION[$name]))
+        {
+            return $_SESSION[$name];
+        }
+        return null;
+    }
+
+    public function isUserLogedIn ()
+    {
+        return true;
     }
 
 }

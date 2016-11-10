@@ -34,13 +34,18 @@ class Core
 
         $controller = new $class($this->_config, $this->_request, $this->_response, $this->_session);
         $controller->execute();
-
     }
 
+    //obrada url-a
     private function _parseUrl()
     {
-        if (isset($_GET['url'])) {
+        if (isset($_GET['url']))
+        {
+            //dobavi url string i stavi ga u array
             return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+            //Sanitizing data = Remove any illegal character from the data
+            //Validating data = Determine if the data is in proper form
+            //explode(separator,string,limit)
         }
     }
 }
