@@ -56,33 +56,23 @@ class User extends Framework\ModelAbstract
 
     public function login($username, $password, $salt = "inchoo")
     {
+
         /*
-        $password = $password . $salt;
-        $password = sha1($password);
         $query = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username");
-        $query2 = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username AND Password = :password");
         $query->bindParam(':username', $username);
         $query->execute();
-        $query2->bindParam(':username', $username);
-        $query2->bindParam(':password', $password);
-        $query2->execute();
-        $rows = $query2->fetch();
-        $error_array = null;
         */
-
         $password = $password . $salt;
         $password = sha1($password);
-        $query = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username");
+
+        $query = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username AND Password = :password");
         $query->bindParam(':username', $username);
+        $query->bindParam(':password', $password);
         $query->execute();
-
-        $query2 = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username AND Password = :password");
-        $query2->bindParam(':username', $username);
-        $query2->bindParam(':password', $password);
-        $query2->execute();
-        $rows = $query2->fetch();
+        $rows = $query->fetch();
+        //error_array
         $error_array = null;
-
+/*
         if (empty($username) || empty($password)) {
             $error_array[] = "Neka polja su prazna!";
         }
@@ -101,7 +91,7 @@ class User extends Framework\ModelAbstract
         }
 
         return $error_array;
-
+*/
     }
     public function register($username, $password, $email, $salt = "inchoo")
     {
@@ -113,7 +103,7 @@ class User extends Framework\ModelAbstract
         $query->bindParam(':password', $password);
         $query->bindParam(':email', $email);
         $query->bindParam(':validate', $validate);
-        $query->bindParam(':confirmed', $confirmed);
+        //$query->bindParam(':confirmed', $confirmed);
         $query->execute();
     }
 
@@ -167,11 +157,6 @@ class User extends Framework\ModelAbstract
         } else return true;
     }
 
-    public static function redirect($url)
-    {
-        header('Location:'.$url);
-        die();
-    }
 
     public function randomString($length = 32) {
         $str = "";

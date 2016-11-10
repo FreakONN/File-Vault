@@ -10,6 +10,6 @@ class Create extends Framework\ControllerAbstract
         $assetModel = new Asset();
         $assetModel->create();
         //redirect na neku drugu adresu
-        $this->_response->redirect("/");
+        $this->_response->redirect("asset/account");
     }
 }

@@ -2,13 +2,13 @@
 namespace Controller\Asset\Action;
 use Framework;
 
-class Download extends Framework\ControllerAbstract
+class Update extends Framework\ControllerAbstract
 {
     public function execute()
     {
         if($this->_session->isUserLogedIn()) {
             $assetModel = new Asset();
-            $assetModel->download();
+            $assetModel->update();
         } else {
             $this->_response->redirect("user/login");
         }

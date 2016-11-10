@@ -11,7 +11,7 @@ class Delete extends Framework\ControllerAbstract
             $assetModel = new Asset();
             $assetModel->delete();
         } else {
-            $this->_response->redirect("user/login");
+            $this->_response->redirect("user/account");
         }
     }
 }

@@ -19,56 +19,30 @@ class Request
 
     public function setParams($params)
     {
-        if(!empty($params))
-        {
+        if (!empty($params)) {
             $counter = 0;
-            foreach ($params as $key)
-            {
+            foreach ($params as $key) {
                 $counter++;
-                if($counter % 2 == 0)
-                {
+                if ($counter % 2 == 0) {
                     $arrayKeys[$params[$counter - 2]] = $key;
-                }
-                else
-                {
+                } else {
                     $arrayKeys[$key] = null;
                 }
             }
-        }
-        else
-        {
+        } else {
             $arrayKeys = null;
         }
         $this->params = $arrayKeys;
     }
 
-    public function getParams()
+    public function getParams($name)
     {
-            return $this->params;
-    }
-
-
-    /*
-    public function setParams($params)
-    {
-        //var_dump('params'); -- string(6) "params" string(6) "params"
-        if (!empty($params))
+        if (isset($this->params[$name]))
         {
-            $counter = 0;
-            foreach ($params as $key => $value)
-            {
-                $this->params[$key] = $value;
-            }
+            return $this->params[$name];
+            //return $this->params;
         }
-        else
-        {
-            $arrayKeys = null;
-        }
+        //return $this->params;
+        return null;
     }
-
-    public function getParams()
-    {
-        return $this->params;
-    }
-    */
 }

@@ -9,6 +9,4 @@ class Account extends Framework\ControllerAbstract
         $dependencies = array("config"=>$this->_config);
         $this->loadLayout("\\View\\User\\Account", $dependencies)->output();
     }
-
-
 }
