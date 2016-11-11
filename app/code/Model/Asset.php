@@ -14,7 +14,7 @@ class Asset extends Framework\ModelAbstract
     }
     //<--------AKO HOCES IMATI PRISTUP BAZI U MODELU
 
-
+    //dohvati userovu listu asseta
     public function getList($userId)
     {
         $stmt = $this->_db->prepare("SELECT * FROM assets WHERE UserId = :userid");

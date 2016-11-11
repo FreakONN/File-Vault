@@ -10,9 +10,11 @@ class Response
 
     }
     //pokupiti iz session-a
-    //ako korisnik nije logan redirektaj ga u tri pizde vražje
+    //ako korisnik nije logan redirektaj ga na register page
+    //ako page nije nađen pošalji mu poruku 404
     public static function redirect($url)
     {
+        //$this->_response->redirect("user/account");
         header('Location:'.$url);
         die();
     }
