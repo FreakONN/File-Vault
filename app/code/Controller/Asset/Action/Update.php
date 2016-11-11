@@ -10,7 +10,7 @@ class Update extends Framework\ControllerAbstract
             $assetModel = new Asset();
             $assetModel->update();
         } else {
-            $this->_response->redirect("user/login");
+            $this->_response->redirect("user/account");
         }
 
 

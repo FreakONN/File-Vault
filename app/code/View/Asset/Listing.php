@@ -16,16 +16,16 @@ class Listing extends Framework\ViewAbstract
     {
         $session = $this->_dependencies["session"];
         $this->baseUrl = $this->_dependencies["config"]->getSetting('base_url');
-        $name = $session->get("name");
 
-        $this->_name = $name;
-        $this->_lastname = "Perić";
+//        $name = $session->get("name");
+//        $this->_name = $name;
+//        $this->_lastname = "Perić";
 
-        var_dump($name);
         //(od)komentirati kada se sredi baza
-       //$assetModel = new Asset();
-       //$this->_assetList = $assetModel->getList();
+        $assetModel = new Asset();
+        $this->_assetList = $assetModel->getList();
 
+        //http://localhost/File-vault/asset/handle/listing?userid=79
         $params = $this->_dependencies["request"]->getParams();
         $userId = $params["UserId"];
        // var_dump($test);exit;

@@ -14,6 +14,7 @@ class Asset extends Framework\ModelAbstract
     }
     //<--------AKO HOCES IMATI PRISTUP BAZI U MODELU
 
+
     public function getList($userId)
     {
         $stmt = $this->_db->prepare("SELECT * FROM assets WHERE UserId = :userid");
@@ -21,4 +22,15 @@ class Asset extends Framework\ModelAbstract
         $stmt->execute();
         return $stmt->FETCH(\PDO::FETCH_ASSOC);
     }
+
+    /*
+    public function getList($userId)
+    {
+        $stmt = $this->getDatabase()->prepare("SELECT * FROM Assets WHERE UserId = :userid");
+        $stmt->bindParam(':userid', $userId);
+        $stmt->execute();
+        $rows = $stmt->fetch();
+        return $rows['mime-type'];//return $rows['public'];
+    }
+    */
 }

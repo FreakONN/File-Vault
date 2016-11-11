@@ -38,11 +38,11 @@ CREATE TABLE `Assets` (
 --
 
 INSERT INTO `Assets` (`AssetId`, `Javno`, `MimeTip`, `UserId`) VALUES
-(1, 'da', 'dasdas', 79),
-(2, 'sa', 'sdaas', 80),
-(3, 'aa', 'dsads', 81),
-(4, 'aa', 'sdasa', 79),
-(5, 'sa', 'sdaasdd', 80);
+(1, 'da', 'dasdas', 1),
+(2, 'sa', 'sdaas', 2),
+(3, 'aa', 'dsads', 3),
+(4, 'aa', 'sdasa', 4),
+(5, 'sa', 'sdaasdd', 5);
 
 -- --------------------------------------------------------
 

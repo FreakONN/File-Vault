@@ -40,7 +40,7 @@ class Session
     public function isUserLoggedIn ()
     {
         //if(isset($_SESSION['username']))
-        if($this->get());
+        if($this->get("name"));
         {
             $this->loggedIn = true;
         }

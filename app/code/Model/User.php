@@ -86,6 +86,7 @@ class User extends Framework\ModelAbstract
         return $error_array;
 */
     }
+
     public function register($username, $password, $email, $salt = "inchoo")
     {
         $password = $password . $salt;
@@ -150,7 +151,6 @@ class User extends Framework\ModelAbstract
         } else return true;
     }
 
-
     public function randomString($length = 32) {
         $str = "";
         $characters = array_merge(range('A','Z'), range('a','z'), range('0','9'));
@@ -174,6 +174,4 @@ class User extends Framework\ModelAbstract
             $query2->execute();
         }
     }
-
-
 }
