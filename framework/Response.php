@@ -3,6 +3,8 @@ namespace Framework;
 
 class Response
 {
+    protected $_redirect;
+
     public function __construct()
     {
         //redirect za kontroler
@@ -12,11 +14,9 @@ class Response
     //pokupiti iz session-a
     //ako korisnik nije logan redirektaj ga na register page
     //ako page nije nađen pošalji mu poruku 404
-    public static function redirect($url)
+    public static function redirect($key)
     {
-        //$this->_response->redirect("user/account");
-        header('Location:'.$url);
-        die();
+
     }
 
 }

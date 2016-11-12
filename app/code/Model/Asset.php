@@ -17,7 +17,7 @@ class Asset extends Framework\ModelAbstract
     //dohvati userovu listu asseta
     public function getList($userId)
     {
-        $stmt = $this->_db->prepare("SELECT * FROM assets WHERE UserId = :userid");
+        $stmt = $this->_db->prepare("SELECT * FROM users WHERE UserId = :userid");
         $stmt->bindParam(':userid', $userId);
         $stmt->execute();
         return $stmt->FETCH(\PDO::FETCH_ASSOC);

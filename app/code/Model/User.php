@@ -17,12 +17,12 @@ class User extends Framework\ModelAbstract
 //<--------AKO HOCES IMATI PRISTUP BAZI U MODELU
 
     public function save(){
-        $uname = $_POST['username'];
+        $uname = $_POST['username'];    //ne preko POST-a nego preko requesta
         //#upass = $_POST['password'];
         $umail = $_POST['email'];
 
         //$stmt = $this->_db->prepare("INSERT INTO users(username,email) VALUES(:uname, :umail)");
-        $stmt = $this->_db->prepare("INSERT INTO user(username,email) VALUES(:uname, :umail)");
+        $stmt = $this->_db->prepare("INSERT INTO users(username,email) VALUES(:uname, :umail)");
 
         $stmt->bindparam(':uname', $uname);
         $stmt->bindparam(':umail', $umail);
@@ -30,11 +30,11 @@ class User extends Framework\ModelAbstract
     }
 
     public function update(){
-        $uname = $_POST['uname'];
-        $umail = $_POST['umail'];
+        $uname = $_REQUEST['uname'];   //ne preko POST-a nego preko requesta
+        $umail = $_REQUEST['umail'];
         $id = $_GET['edit_id'];
 
-        $stmt = $this->_db->prepare("UPDATE user SET username=:uname, email=:uemail WHERE id=:id");
+        $stmt = $this->_db->prepare("UPDATE users SET username=:uname, email=:uemail WHERE id=:id");
         $stmt->bindparam(':uname', $uname);
         $stmt->bindparam(':uemail', $umail);
         $stmt->bindparam(':id', $id);
@@ -42,14 +42,14 @@ class User extends Framework\ModelAbstract
     }
 
     public function edit(){
-        $stmt = $this->_db->prepare("SELECT * FROM user WHERE id=:id");
+        $stmt = $this->_db->prepare("SELECT * FROM users WHERE id=:id");
         $stmt->execute(array(':id' => $_GET['edit_id']));
         $editRow=$stmt->FETCH(PDO::FETCH_ASSOC);
     }
 
     public function delete(){
         $id = $_GET['delete_id'];
-        $stmt = $this->_db->prepare("DELETE FROM user WHERE id=:id");
+        $stmt = $this->_db->prepare("DELETE FROM users WHERE id=:id");
         $stmt->execute(array(':id' => $id));
         header("Location: index.php");
     }
@@ -59,7 +59,7 @@ class User extends Framework\ModelAbstract
         $password = $password . $salt;
         $password = sha1($password);
 
-        $query = $this->getDatabase()->prepare("SELECT * FROM user WHERE Username = :username AND Password = :password");
+        $query = $this->getDatabase()->prepare("SELECT * FROM users WHERE Username = :username AND Password = :password");
         $query->bindParam(':username', $username);
         $query->bindParam(':password', $password);
         $query->execute();

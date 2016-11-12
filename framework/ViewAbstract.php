@@ -15,7 +15,7 @@ class ViewAbstract
     public function setTemplate($template)
     {
         //ispraviti
-        $this->_template = dirname(__FILE__)."/../public/theme/FileVault/templates/" . $template;
+        $this->_template = dirname(__FILE__) . "/../public/theme/FileVault/templates/" . $template;
         return $this;
     }
 

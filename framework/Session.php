@@ -49,11 +49,6 @@ class Session
         //return true;
     }
 
-    public function addMessage()
-    {
-        return $this->addMessage();
-    }
-
 
 
 }

@@ -22,16 +22,16 @@ class Listing extends Framework\ViewAbstract
 //        $this->_lastname = "Perić";
 
 //      (od)komentirati kada se sredi baza
-        $assetModel = new Asset();
-        $this->_assetList = $assetModel->getList();
+        //$assetModel = new Asset();
+        //$this->_assetList = $assetModel->getList();
 
         //http://localhost/File-vault/asset/handle/listing?userid=79
-        //$params = $this->_dependencies["request"]->getParams();
-        //$userId = $params["UserId"];
-        //var_dump($test);exit;
+        $params = $this->_dependencies["request"]->getParams();
+        $userId = $params["UserId"];
+        var_dump($this->_assetList);exit;
 
-        //$assetModel = new Asset();
-        //$this->_assetList = $assetModel->getList($userId,$uname,$upass,$umail);
+        $assetModel = new Asset();
+        $this->_assetList = $assetModel->getList($userId);
 
         Framework\Debug::dump($this->_assetList);
         $this->setTemplate("asset/listing.phtml")->render();

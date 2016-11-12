@@ -27,3 +27,4 @@ class ControllerAbstract
         return new $view($dependencies);
     }
 }
+}
