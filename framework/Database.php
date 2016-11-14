@@ -20,7 +20,7 @@ class Database
         {
             $DB_host = 'localhost';
             $DB_user = 'root';
-            $DB_pass = '';
+            $DB_pass = 'mysql';
             $DB_name = 'file_vault';
 
 
