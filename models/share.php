@@ -1,5 +1,6 @@
 <?php
-class ShareModel extends Model{
+class ShareModel extends Model
+{
 	public function Index(){
 		$this->query('SELECT * FROM shares ORDER BY create_date DESC');
 		$rows = $this->resultSet();
@@ -32,4 +33,24 @@ class ShareModel extends Model{
 		}
 		return;
 	}
+    public function upload(){
+        $file = $_FILES['fileToUpload'];
+        $uploadFileName = $file['name'];
+        $uploadFileType = $file['type'];
+        $uploadFileSize = $file['size'];
+
+        // Sanitize POST
+        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if($post['upload']){
+            move_uploaded_file($file['tmp_name'], TARGET_DIR . DS . $file['name']);
+            // Insert into MySQL
+            $this->query('INSERT INTO shares (file_name, file_type, file_size) VALUES (:file_name, :file_type, :file_size ');
+            $this->bind(':file_name', $uploadFileName);
+            $this->bind(':file_type', $uploadFileType);
+            $this->bind(':file_size', $uploadFileSize);
+            $this->execute();
+            header('Location: '.ROOT_URL.'shares');
+        }
+        return;
+    }
 }
