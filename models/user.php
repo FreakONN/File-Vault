@@ -7,13 +7,13 @@ class UserModel extends Model{
 		$password = md5($post['password']);
 
 		if($post['submit']){
-			if($post['name'] == '' || $post['email'] == '' || $post['password'] == ''){
+			if($post['uname'] == '' || $post['email'] == '' || $post['password'] == ''){
 				Messages::setMsg('Please Fill In All Fields', 'error');
 				return;
 			}
 
 			// Insert into MySQL
-			$this->query('INSERT INTO users (uname, email, password) VALUES(:name, :email, :password)');
+			$this->query('INSERT INTO users (uname, email, password) VALUES(:uname, :email, :password)');
 			$this->bind(':uname', $post['uname']);
 			$this->bind(':email', $post['email']);
 			$this->bind(':password', $password);

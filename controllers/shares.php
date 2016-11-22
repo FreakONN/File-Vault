@@ -25,5 +25,4 @@ class Shares extends Controller{
         $viewmodel = new ShareModel();
         $this->returnView($viewmodel->upload(), true); //true je za fullview
     }
-
 }
