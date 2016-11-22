@@ -29,7 +29,7 @@
 		<div class="panel-body">
 			<form method="post" action="upload" enctype="multipart/form-data">
 				<input class="btn btn-default btn-share"  name="fileToUpload" type="file" id="fileToUpload">
-				<input class="btn btn-primary" type="submit" vgit alue="Upload File" name="upload" >
+				<input class="btn btn-primary" type="submit" value="Upload File" name="upload" >
 			</form>
 		</div>
 	</div>
