@@ -44,7 +44,7 @@ class ShareModel extends Model
         if($post['upload']){
             move_uploaded_file($file['tmp_name'], TARGET_DIR . DS . $file['name']);
             // Insert into MySQL
-            $this->query('INSERT INTO shares (file_name, file_type, file_size) VALUES (:file_name, :file_type, :file_size ');
+            $this->query('INSERT INTO shares (file_name, file_type, file_size) VALUES (:file_name, :file_type, :file_size)');
             $this->bind(':file_name', $uploadFileName);
             $this->bind(':file_type', $uploadFileType);
             $this->bind(':file_size', $uploadFileSize);
