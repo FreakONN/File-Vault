@@ -1,6 +1,18 @@
 <?php
+
+/*TO-DO: prebaciti upload metodu u add ali nije nužno -- dio abstraktirati u database klasi
+        srediti public (insert i update)...provjera na: if(isset($_SESSION['is_logged_in']))
+        CRUD operacije i onda srediti upload/add
+        odvojiti implemetacije blog posta i uploada
+        upload i blog implemetacija koriste istu tablicu -- ODVOJITI u asset table i share table
+        srediti unique, autoincrement key (user_id, asset_id)
+
+BUG:    u tablici na user_id se izvršava upload/post pa se generira prazan post field s datumom
+*/
+
 class ShareModel extends Model
 {
+    //odvojiti u posebnu metodu
 	public function Index(){
 		$this->query('SELECT * FROM shares ORDER BY create_date DESC');
 		$rows = $this->resultSet();
@@ -39,13 +51,15 @@ class ShareModel extends Model
         $uploadFileName = $file['name'];
         $uploadFileType = $file['type'];
         $uploadFileSize = $file['size'];
-        var_dump($_FILES);
+        $file_public = 'yes';
         // Sanitize POST
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
         if($post['upload']){
             move_uploaded_file($file['tmp_name'], TARGET_DIR . DS . $file['name']);
+
             // Insert into MySQL
-            $this->query('INSERT INTO shares (file_name, file_type, file_size) VALUES (:file_name, :file_type, :file_size)');
+            $this->query('INSERT INTO shares (file_name, file_type, file_size, user_id) VALUES (:file_name, :file_type, :file_size, :user_id)');
             $this->bind(':file_name', $uploadFileName);
             $this->bind(':file_type', $uploadFileType);
             $this->bind(':file_size', $uploadFileSize);
@@ -54,5 +68,8 @@ class ShareModel extends Model
             header('Location: '.ROOT_URL.'shares');
         }
         return;
+    }
+    public function delete(){
+
     }
 }

@@ -3,6 +3,7 @@
 		<h3 class="panel-title">Share Something!</h3>
 	</div>
 	<div class="panel-body">
+        <!-- podD HITNO srediti PHP_SELF placeholder-->
 		<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 			<div class="form-group">
 				<label>Share Title</label>
